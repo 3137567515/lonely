@@ -11,14 +11,17 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
+    # 使用官方推荐的方式配置 MSVC 环境
     - name: Setup MSVC
-      uses: ilammy/msvc-dev-cmd@v1
-      
+      uses: actions/setup-microsoft-visual-cpp@v1
+      with:
+        arch: x64
+    
     - name: Compile
       run: cl main.c /Femyapp.exe
       
     - name: Upload exe
       uses: actions/upload-artifact@v4
       with:
-        name: myapp
-        path: myapp.exe
+        name: docview（文档查看器）
+        path: docview（文档查看器）.exe
